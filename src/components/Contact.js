@@ -1,11 +1,9 @@
 import React from "react";
 import emailjs from "emailjs-com";
-import "./Style.css";
-
+import "../cssComponents/contact.css";
 const Contact = () => {
   function sendEmail(e) {
     e.preventDefault();
-
     emailjs
       .sendForm(
         "service_2uc7i5l",
@@ -24,67 +22,77 @@ const Contact = () => {
       );
   }
   return (
-    <>
-      <div className="contact-bg ">
-        <h1
-          className="text-5xl pt-6 font-bold text-center btn-color mb-5"
-          id="contact"
-        >
-          Contact
-        </h1>
-      </div>
-
-      <div>
-        <div
-          className="contact-form"
-          onSubmit={sendEmail}
-          class="contact__container items-center mt-10 flex justify-center "
-        >
-          <form action="#">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              class="contact__input font-semibold p-4 rounded-lg mb-12 "
-            />
-            <br />
-            <input
-              type="mail"
-              name="email"
-              placeholder="Email"
-              class="contact__input font-semibold  p-4 rounded-lg mb-12"
-            />
-            <br />
-            <input
-              type="mail"
-              name="phoneNumber"
-              placeholder="Phone Number"
-              class="contact__input font-semibold x p-4 rounded-lg mb-12"
-            />
-            <br />
-            <input
-              type="mail"
-              name="budget"
-              placeholder="Event Budget"
-              class="contact__input font-semibold x p-4 rounded-lg mb-12"
-            />
-            <br />
-            <textarea
-              name=""
-              name="message"
-              class="contact__input mb-10  h-36"
-            ></textarea>
-            <div className="rounded-md text-center mt-10">
-              <input
-                type="submit"
-                value="Send"
-                className="py-6 px-10 text-white bg-indigo-600 rounded-md text-2xl hover:bg-indigo-700 transition duration-300 ease-in-out items-center animate-bounce uppercase text-center"
-              />
-            </div>
-          </form>
-        </div>
-      </div>
-    </>
+    <div>
+      <form onSubmit={sendEmail}>
+        <input
+          id="input-1"
+          type="text"
+          placeholder="John Doe"
+          name="name"
+          required
+          autofocus
+        />
+        <label htmlFor="input-1">
+          <span className="label-text">Full Name</span>
+          <span className="nav-dot" />
+          <div className="signup-button-trigger">Sign Uppp</div>
+        </label>
+        //Email part
+        <input
+          id="input-3"
+          type="email"
+          name="email"
+          placeholder="email@address.com"
+          required
+        />
+        <label htmlFor="input-3">
+          <span className="label-text">Email</span>
+          <span className="nav-dot" />
+        </label>
+        //phone number part
+        <input
+          id="input-2"
+          type="text"
+          name="phoneNumber"
+          placeholder="Phone Number"
+          required
+        />
+        <label htmlFor="input-2">
+          <span className="label-text">Phone Number</span>
+          <span className="nav-dot" />
+        </label>
+        //Event budget
+        <input
+          id="input-4"
+          name="budget"
+          type="text"
+          placeholder="Event budget"
+          required
+        />
+        <label htmlFor="input-4">
+          <span className="label-text">Event Budget</span>
+          <span className="nav-dot" />
+        </label>
+        // text area
+        <input
+          id="input-5"
+          name="message"
+          type="textarea"
+          placeholder="Write Your Message"
+          required
+        />
+        <label htmlFor="input-5">
+          <span className="label-text">Message</span>
+          <span className="nav-dot" />
+        </label>
+        //this is contact part
+        <button type="submit" value="Send">
+          Submit
+        </button>
+        <p className="tip">Press Tab</p>
+        <div className="signup-button">Contact</div>
+      </form>
+    </div>
   );
 };
 
