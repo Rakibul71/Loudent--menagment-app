@@ -1,9 +1,12 @@
 import React from "react";
+import "./Style.css";
 import emailjs from "emailjs-com";
 import "../cssComponents/contact.css";
+
 const Contact = () => {
   function sendEmail(e) {
     e.preventDefault();
+
     emailjs
       .sendForm(
         "service_2uc7i5l",
@@ -11,86 +14,56 @@ const Contact = () => {
         e.target,
         "user_iDHHLs6cBnzE744ga9yiT"
       )
-
       .then(
-        function (response) {
-          alert("SUCCESS!", response.status, response.text);
+        (result) => {
+          console.log(result.text);
         },
-        function (error) {
-          console.log("FAILED...", error);
+        (error) => {
+          console.log(error.text);
         }
       );
   }
   return (
-    <div>
-      <form onSubmit={sendEmail}>
+    <div className="formDivContainer">
+      <form className="formContainer" onSubmit={sendEmail}>
         <input
-          id="input-1"
           type="text"
-          placeholder="John Doe"
+          placeholder="Name"
           name="name"
-          required
-          autofocus
+          class="contact__input font-semibold p-4 rounded-lg mb-12 "
         />
-        <label htmlFor="input-1">
-          <span className="label-text">Full Name</span>
-          <span className="nav-dot" />
-          <div className="signup-button-trigger">Sign Uppp</div>
-        </label>
-        //Email part
+        <br />
         <input
-          id="input-3"
-          type="email"
+          type="mail"
           name="email"
-          placeholder="email@address.com"
-          required
+          placeholder="Email"
+          class="contact__input font-semibold  p-4 rounded-lg mb-12"
         />
-        <label htmlFor="input-3">
-          <span className="label-text">Email</span>
-          <span className="nav-dot" />
-        </label>
-        //phone number part
+        <br />
         <input
-          id="input-2"
-          type="text"
-          name="phoneNumber"
+          type="mail"
           placeholder="Phone Number"
-          required
+          name="phoneNumber"
+          class="contact__input font-semibold x p-4 rounded-lg mb-12"
         />
-        <label htmlFor="input-2">
-          <span className="label-text">Phone Number</span>
-          <span className="nav-dot" />
-        </label>
-        //Event budget
+        <br />
         <input
-          id="input-4"
+          type="mail"
           name="budget"
-          type="text"
-          placeholder="Event budget"
-          required
+          placeholder="Event Budget"
+          class="contact__input font-semibold x p-4 rounded-lg mb-12"
         />
-        <label htmlFor="input-4">
-          <span className="label-text">Event Budget</span>
-          <span className="nav-dot" />
-        </label>
-        // text area
-        <input
-          id="input-5"
-          name="message"
-          type="textarea"
-          placeholder="Write Your Message"
-          required
-        />
-        <label htmlFor="input-5">
-          <span className="label-text">Message</span>
-          <span className="nav-dot" />
-        </label>
-        //this is contact part
-        <button type="submit" value="Send">
-          Submit
-        </button>
-        <p className="tip">Press Tab</p>
-        <div className="signup-button">Contact</div>
+        <br />
+        <textarea name="message" class="contact__input mb-10  h-36"></textarea>
+        <div className="rounded-md text-center mt-10">
+          <button
+            type="submit"
+            className="py-6 px-10 text-white bg-indigo-600 rounded-md text-2xl hover:bg-indigo-700 transition duration-300 ease-in-out items-center animate-bounce uppercase text-center"
+            value="Send"
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );

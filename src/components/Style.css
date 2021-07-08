@@ -140,3 +140,24 @@ body {
 .navStyle {
   font-size: 1.25rem;
 }
+
+@media (max-width: 574px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+  }
+
+  body {
+    font-size: 80%;
+    font-size: 10px;
+    line-height: 1.5rem;
+    --webkit-font-smoothing: antialiased;
+    --noz-osx-font-smoothing: grayscale;
+  }
+  .formContainer {
+    margin-left: 2px;
+    /* margin-right: 5px; */
+  }
+}
