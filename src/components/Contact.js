@@ -26,6 +26,12 @@ const Contact = () => {
   return (
     <div className="formDivContainer">
       <form className="formContainer" onSubmit={sendEmail}>
+        <h1
+          className="text-5xl mb-10 text-center font-bold btn-color "
+          id="about"
+        >
+          Contact
+        </h1>
         <input
           type="text"
           placeholder="Name"
